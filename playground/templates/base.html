@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Church app</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+  </head>
+  <body>
+    <h1>It works</h1>
+    <ul>
+      {% for mem in mems %}
+        <li>{{ mem.id }}</li>
+        {% for att in atts %}
+          {% if att.member == mem.id %}
+            <li>{{att.id}} - {{att.date}} - {{att.member_id}}</li>
+          {% endif %}
+        {% endfor %}
+      {% endfor %}
+    </ul>
+  </body>
+</html>
